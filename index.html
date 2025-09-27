@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrediEfectivo - Créditos Personales Rápidos y Seguros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables y estilos generales */
+        :root {
+            --primary: #1a5276;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --text: #333;
+            --gray: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #154360;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 10px auto 0;
+        }
+        
+        /* Header y navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(41, 128, 185, 0.85)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Sección Misión y Visión */
+        .mission-vision {
+            background-color: white;
+        }
+        
+        .mv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .mv-card {
+            background-color: var(--light);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .mv-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mv-card h3 {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .mv-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        /* Sección Quiénes Somos */
+        .about {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text {
+            padding-right: 20px;
+        }
+        
+        .about-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+        }
+        
+        .img1 { background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        .img2 { background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        .img3 { background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        .img4 { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        
+        /* Sección de productos */
+        .products {
+            background-color: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        
+        .product-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-feature {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .product-feature:last-child {
+            border-bottom: none;
+        }
+        
+        .product-footer {
+            padding: 0 25px 25px;
+            margin-top: auto;
+        }
+        
+        /* Sección Calculadora */
+        .calculator {
+            background-color: var(--light);
+            padding: 80px 0;
+        }
+        
+        .calculator-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .calculator-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calculator-result {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .calculator-result.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .payment-day-selector {
+            margin-top: 20px;
+        }
+        
+        .day-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .day-btn {
+            padding: 8px 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .day-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .day-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .day-selector {
+            margin-top: 10px;
+        }
+        
+        .day-selector select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        /* Formulario de solicitud */
+        .application {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .application .section-title {
+            color: white;
+        }
+        
+        .application .section-title:after {
+            background-color: var(--accent);
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(41, 128, 185, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent);
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #bbb;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .day-buttons {
+                justify-content: center;
+            }
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">CE</div>
+                <div class="logo-text">Credi<span>Efectivo</span></div>
+            </div>
+            <div class="mobile-menu">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#mision-vision">Nosotros</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#calculadora">Calculadora</a></li>
+                    <li><a href="#solicitud">Solicitar Crédito</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1 class="fade-in">Créditos Personales Rápidos y Seguros</h1>
+            <p class="fade-in delay-1">En CrediEfectivo te ayudamos a hacer realidad tus sueños con soluciones financieras adaptadas a tus necesidades.</p>
+            <a href="#calculadora" class="btn fade-in delay-2">Calcular Mi Crédito</a>
+        </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="mission-vision" id="mision-vision">
+        <div class="container">
+            <h2 class="section-title">Nuestra Empresa</h2>
+            <div class="mv-container">
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Misión</h3>
+                    <p>Proporcionar soluciones financieras accesibles y personalizadas que impulsen el crecimiento económico de nuestros clientes, ofreciendo créditos con procesos ágiles, transparentes y responsables.</p>
+                </div>
+                <div class="mv-card fade-in delay-1">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visión</h3>
+                    <p>Ser la financiera líder en créditos personales, reconocida por nuestra innovación, confiabilidad y compromiso con el bienestar financiero de nuestros clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">Apoyamos Tus Sueños</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>En CrediEfectivo creemos en tu potencial</h3>
+                    <p>Somos más que una financiera, somos tu aliado para alcanzar tus metas. A través de nuestros productos financieros, ayudamos a familias, emprendedores y profesionales a materializar sus proyectos.</p>
+                    <p>Ya sea que necesites capital para iniciar un negocio, pagar estudios, mejorar tu hogar o enfrentar una emergencia, estamos aquí para brindarte el apoyo que necesitas.</p>
+                    <p>Nuestros créditos han permitido a miles de personas:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li>Iniciar y hacer crecer sus emprendimientos</li>
+                        <li>Financiar la educación de sus hijos</li>
+                        <li>Adquirir vehículos para trabajo y familia</li>
+                        <li>Mejorar su calidad de vida</li>
+                    </ul>
+                    <p>Tu éxito es nuestro éxito. Por eso trabajamos cada día para ofrecerte las mejores condiciones y un servicio excepcional.</p>
+                </div>
+                <div class="about-images">
+                    <div class="about-img img1"></div>
+                    <div class="about-img img2"></div>
+                    <div class="about-img img3"></div>
+                    <div class="about-img img4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="products" id="productos">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos Financieros</h2>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-header">
+                        <h3>Crédito Semanal 15 Semanas</h3>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-feature">
+                            <span>Tasa de interés:</span>
+                            <span>42.5%</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Interés total:</span>
+                            <span>1.425 veces el capital</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Plazo:</span>
+                            <span>15 semanas</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Monto:</span>
+                            <span>$5,000 - $15,000</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Pagos:</span>
+                            <span>Semanalmente</span>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <a href="#calculadora" class="btn" style="width: 100%;" data-product="semanal-15">Calcular Este Crédito</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="product-card fade-in delay-1">
+                    <div class="product-header">
+                        <h3>Crédito Semanal 31 Semanas</h3>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-feature">
+                            <span>Tasa de interés:</span>
+                            <span>55%</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Interés total:</span>
+                            <span>1.55 veces el capital</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Plazo:</span>
+                            <span>31 semanas</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Monto:</span>
+                            <span>$5,000 - $15,000</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Pagos:</span>
+                            <span>Semanalmente</span>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <a href="#calculadora" class="btn" style="width: 100%;" data-product="semanal-31">Calcular Este Crédito</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="product-card fade-in delay-2">
+                    <div class="product-header">
+                        <h3>Crédito Diario 21 Días</h3>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-feature">
+                            <span>Tasa de interés:</span>
+                            <span>55.4%</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Interés total:</span>
+                            <span>1.55 veces el capital</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Plazo:</span>
+                            <span>21 días</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Monto:</span>
+                            <span>$1,000 - $4,000</span>
+                        </div>
+                        <div class="product-feature">
+                            <span>Pagos:</span>
+                            <span>Diariamente</span>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <a href="#calculadora" class="btn" style="width: 100%;" data-product="diario-21">Calcular Este Crédito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculadora -->
+    <section class="calculator" id="calculadora">
+        <div class="container">
+            <h2 class="section-title">Calcula Tu Crédito</h2>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <h3>Simula tu préstamo</h3>
+                    <p>Selecciona el tipo de crédito y el monto que deseas para conocer tus pagos.</p>
+                    
+                    <div class="form-group">
+                        <label for="calc-product">Tipo de Crédito</label>
+                        <select id="calc-product" class="form-control" required>
+                            <option value="">Selecciona un producto</option>
+                            <option value="semanal-15">Crédito Semanal 15 semanas (42.5%)</option>
+                            <option value="semanal-31">Crédito Semanal 31 semanas (55%)</option>
+                            <option value="diario-21">Crédito Diario 21 días (55.4%)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="calc-amount">Monto deseado</label>
+                        <input type="number" id="calc-amount" class="form-control" min="1000" max="15000" required>
+                        <small id="amount-range">Monto entre $1,000 y $15,000</small>
+                    </div>
+                    
+                    <div class="payment-day-selector">
+                        <label>Selecciona tu día de pago:</label>
+                        <div class="day-buttons">
+                            <button type="button" class="day-btn" data-frequency="semanal">Pagos Semanales</button>
+                            <button type="button" class="day-btn" data-frequency="diario">Pagos Diarios</button>
+                        </div>
+                        
+                        <div class="day-selector" id="semanal-days" style="display: none;">
+                            <select id="day-semanal">
+                                <option value="">Selecciona un día</option>
+                                <option value="lunes">Lunes</option>
+                                <option value="martes">Martes</option>
+                                <option value="miercoles">Miércoles</option>
+                                <option value="jueves">Jueves</option>
+                                <option value="viernes">Viernes</option>
+                                <option value="sabado">Sábado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="day-selector" id="diario-days" style="display: none;">
+                            <select id="day-diario">
+                                <option value="">Selecciona un día de inicio</option>
+                                <option value="lunes">Lunes</option>
+                                <option value="martes">Martes</option>
+                                <option value="miercoles">Miércoles</option>
+                                <option value="jueves">Jueves</option>
+                                <option value="viernes">Viernes</option>
+                                <option value="sabado">Sábado</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button id="calculate-btn" class="btn" style="width: 100%; margin-top: 20px;">Calcular Pagos</button>
+                </div>
+                
+                <div class="calculator-result" id="calculator-result">
+                    <h3>Resultado de tu simulación</h3>
+                    <div class="result-item">
+                        <span>Monto solicitado:</span>
+                        <span id="result-amount">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Plazo:</span>
+                        <span id="result-term">0 semanas</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Interés total:</span>
+                        <span id="result-interest">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Total a pagar:</span>
+                        <span id="result-total">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Pago por periodo:</span>
+                        <span id="result-payment">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Día de pago:</span>
+                        <span id="result-day">No seleccionado</span>
+                    </div>
+                    
+                    <a href="#solicitud" class="btn" style="width: 100%; margin-top: 20px;">Solicitar Este Crédito</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Solicitud -->
+    <section class="application" id="solicitud">
+        <div class="container">
+            <h2 class="section-title">Solicita tu Crédito</h2>
+            <div class="form-container">
+                <form id="credit-form">
+                    <div class="form-group">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product">Producto de interés</label>
+                        <select id="product" class="form-control" required>
+                            <option value="">Selecciona un producto</option>
+                            <option value="semanal-15">Crédito Semanal 15 semanas (42.5%)</option>
+                            <option value="semanal-31">Crédito Semanal 31 semanas (55%)</option>
+                            <option value="diario-21">Crédito Diario 21 días (55.4%)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Monto deseado</label>
+                        <input type="number" id="amount" class="form-control" min="1000" max="15000" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; margin-bottom: 15px;">Enviar Solicitud</button>
+                    <a href="https://wa.me/525612454753?text=Hola,%20me%20interesa%20solicitar%20un%20crédito%20con%20CrediEfectivo" class="btn btn-whatsapp" style="width: 100%;">
+                        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                    </a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CrediEfectivo</h3>
+                    <p>Tu socio financiero de confianza para alcanzar tus metas. Estamos comprometidos con tu crecimiento y bienestar económico.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>Teléfono: (55) 5612-454753</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: crefsa24@gmail.com</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. Principal #123, CDMX</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-clock"></i>
+                        <span>Lun-Vie: 9:00 - 18:00</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces rápidos</h3>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#mision-vision">Nosotros</a>
+                    <a href="#productos">Productos</a>
+                    <a href="#calculadora">Calculadora</a>
+                    <a href="#solicitud">Solicitar Crédito</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CrediEfectivo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav ul').classList.remove('show');
+            });
+        });
+        
+        // Configuración de productos
+        const products = {
+            'semanal-15': {
+                name: 'Crédito Semanal 15 semanas',
+                interestFactor: 1.425, // 42.5% de interés total
+                term: 15,
+                termType: 'semanas',
+                minAmount: 5000,
+                maxAmount: 15000,
+                paymentFrequency: 'semanal'
+            },
+            'semanal-31': {
+                name: 'Crédito Semanal 31 semanas',
+                interestFactor: 1.55, // 55% de interés total
+                term: 31,
+                termType: 'semanas',
+                minAmount: 5000,
+                maxAmount: 15000,
+                paymentFrequency: 'semanal'
+            },
+            'diario-21': {
+                name: 'Crédito Diario 21 días',
+                interestFactor: 1.55, // 55% de interés total
+                term: 21,
+                termType: 'días',
+                minAmount: 1000,
+                maxAmount: 4000,
+                paymentFrequency: 'diario'
+            }
+        };
+        
+        // Validar monto según producto seleccionado
+        function updateAmountRange() {
+            const product = document.getElementById('calc-product').value;
+            const amountInput = document.getElementById('calc-amount');
+            const amountRange = document.getElementById('amount-range');
+            
+            if (product && products[product]) {
+                const productInfo = products[product];
+                amountInput.min = productInfo.minAmount;
+                amountInput.max = productInfo.maxAmount;
+                amountRange.textContent = `Monto entre $${productInfo.minAmount.toLocaleString()} y $${productInfo.maxAmount.toLocaleString()}`;
+            } else {
+                amountInput.min = 1000;
+                amountInput.max = 15000;
+                amountRange.textContent = 'Monto entre $1,000 y $15,000';
+            }
+        }
+        
+        document.getElementById('calc-product').addEventListener('change', updateAmountRange);
+        
+        // Selección de frecuencia de pago
+        let selectedFrequency = '';
+        document.querySelectorAll('.day-btn[data-frequency]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.day-btn[data-frequency]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                selectedFrequency = this.getAttribute('data-frequency');
+                
+                // Mostrar selector de días correspondiente
+                document.getElementById('semanal-days').style.display = 'none';
+                document.getElementById('diario-days').style.display = 'none';
+                
+                if (selectedFrequency === 'semanal') {
+                    document.getElementById('semanal-days').style.display = 'block';
+                } else if (selectedFrequency === 'diario') {
+                    document.getElementById('diario-days').style.display = 'block';
+                }
+            });
+        });
+        
+        // Calcular préstamo
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const productId = document.getElementById('calc-product').value;
+            const amount = parseFloat(document.getElementById('calc-amount').value);
+            
+            if (!productId) {
+                alert('Por favor selecciona un tipo de crédito');
+                return;
+            }
+            
+            if (!amount || amount < products[productId].minAmount || amount > products[productId].maxAmount) {
+                alert(`Por favor ingresa un monto válido entre $${products[productId].minAmount.toLocaleString()} y $${products[productId].maxAmount.toLocaleString()}`);
+                return;
+            }
+            
+            if (!selectedFrequency) {
+                alert('Por favor selecciona la frecuencia de pago');
+                return;
+            }
+            
+            let selectedDay = '';
+            if (selectedFrequency === 'semanal') {
+                selectedDay = document.getElementById('day-semanal').value;
+            } else {
+                selectedDay = document.getElementById('day-diario').value;
+            }
+            
+            if (!selectedDay) {
+                alert('Por favor selecciona un día de pago');
+                return;
+            }
+            
+            const product = products[productId];
+            
+            // Calcular según la lógica corregida
+            const totalToPay = amount * product.interestFactor;
+            const totalInterest = totalToPay - amount;
+            const paymentPerPeriod = totalToPay / product.term;
+            
+            // Mostrar resultados
+            document.getElementById('result-amount').textContent = `$${amount.toLocaleString()}`;
+            document.getElementById('result-term').textContent = `${product.term} ${product.termType}`;
+            document.getElementById('result-interest').textContent = `$${totalInterest.toFixed(2).toLocaleString()}`;
+            document.getElementById('result-total').textContent = `$${totalToPay.toFixed(2).toLocaleString()}`;
+            document.getElementById('result-payment').textContent = `$${paymentPerPeriod.toFixed(2).toLocaleString()} por ${product.paymentFrequency}`;
+            document.getElementById('result-day').textContent = selectedDay.charAt(0).toUpperCase() + selectedDay.slice(1);
+            
+            // Mostrar sección de resultados
+            document.getElementById('calculator-result').classList.add('active');
+            
+            // Actualizar formulario de solicitud con los datos calculados
+            document.getElementById('product').value = productId;
+            document.getElementById('amount').value = amount;
+        });
+        
+        // Botones "Calcular Este Crédito" en productos
+        document.querySelectorAll('.product-footer .btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productId = this.getAttribute('data-product');
+                document.getElementById('calc-product').value = productId;
+                updateAmountRange();
+                
+                // Seleccionar automáticamente la frecuencia según el producto
+                const product = products[productId];
+                const frequencyBtn = document.querySelector(`.day-btn[data-frequency="${product.paymentFrequency}"]`);
+                if (frequencyBtn) {
+                    frequencyBtn.click();
+                }
+                
+                // Desplazarse a la calculadora
+                document.getElementById('calculadora').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Formulario de solicitud
+        document.getElementById('credit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener datos del formulario
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const product = document.getElementById('product').value;
+            const amount = document.getElementById('amount').value;
+            
+            // Crear mensaje para WhatsApp
+            const productText = {
+                'semanal-15': 'Crédito Semanal 15 semanas',
+                'semanal-31': 'Crédito Semanal 31 semanas',
+                'diario-21': 'Crédito Diario 21 días'
+            }[product];
+            
+            const message = `Hola, me interesa solicitar un crédito con CrediEfectivo.%0A%0A*Datos de contacto:*%0A- Nombre: ${name}%0A- Teléfono: ${phone}%0A- Email: ${email}%0A%0A*Solicitud de crédito:*%0A- Producto: ${productText}%0A- Monto: $${amount}`;
+            
+            // Número de WhatsApp
+            const whatsappNumber = "525612454753";
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+            
+            // Mostrar mensaje de confirmación
+            alert('¡Gracias por tu solicitud! Serás redirigido a WhatsApp para continuar con el proceso.');
+            
+            // Limpiar formulario
+            document.getElementById('credit-form').reset();
+        });
+        
+        // Validar monto en formulario de solicitud según producto seleccionado
+        document.getElementById('product').addEventListener('change', function() {
+            const product = this.value;
+            const amountInput = document.getElementById('amount');
+            
+            if (product === 'diario-21') {
+                amountInput.min = 1000;
+                amountInput.max = 4000;
+                amountInput.placeholder = 'Monto entre $1,000 y $4,000';
+            } else {
+                amountInput.min = 5000;
+                amountInput.max = 15000;
+                amountInput.placeholder = 'Monto entre $5,000 y $15,000';
+            }
+        });
+        
+        // Animación de elementos al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observar elementos con clase fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+  </html>
